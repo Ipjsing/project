@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student & Parent Registration - Bonny Island School Bus Transport</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-brand">
+                <h1>🚌 Bonny Island School Transport</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="index.html#pricing" class="nav-link">Pricing</a></li>
+                <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+                <li><a href="#registration" class="nav-link btn-register active">Register</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Section -->
+    <section id="registration" class="registration">
+        <div class="container">
+            <div class="registration-header">
+                <h2>Student & Parent Registration</h2>
+                <p>Complete this form to enroll your student in our bus transport service</p>
+            </div>
+
+            <div class="registration-form-container">
+                <form class="registration-form" id="registrationForm" onsubmit="handleSubmit(event)">
+                    <!-- Progress Indicator -->
+                    <div class="form-progress">
+                        <div class="progress-step active" data-step="1">
+                            <span>1</span>
+                            <p>Student + Parent</p>
+                        </div>
+                        <div class="progress-step" data-step="2">
+                            <span>2</span>
+                            <p>Service Details</p>
+                        </div>
+                        <div class="progress-step" data-step="3">
+                            <span>3</span>
+                            <p>Review & Submit</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 1: Student & Parent Information -->
+                    <div class="form-step active" data-step="1">
+                        <h3>Student Information</h3>
+                        
+                        <div class="form-group">
+                            <label for="studentFirstName">Student First Name *</label>
+                            <input type="text" id="studentFirstName" name="studentFirstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studentLastName">Student Last Name *</label>
+                            <input type="text" id="studentLastName" name="studentLastName" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dob">Date of Birth *</label>
+                                <input type="date" id="dob" name="dob" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gender">Gender *</label>
+                                <select id="gender" name="gender" required>
+                                    <option value="">Select Gender</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="school">School Name *</label>
+                            <input type="text" id="school" name="school" placeholder="e.g., Bonny Island Secondary School" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="classLevel">Class/Grade Level *</label>
+                            <select id="classLevel" name="classLevel" required>
+                                <option value="">Select Class Level</option>
+                                <option value="JSS1">JSS1</option>
+                                <option value="JSS2">JSS2</option>
+                                <option value="JSS3">JSS3</option>
+                                <option value="SS1">SS1</option>
+                                <option value="SS2">SS2</option>
+                                <option value="SS3">SS3</option>
+                                <option value="Primary 1">Primary 1</option>
+                                <option value="Primary 2">Primary 2</option>
+                                <option value="Primary 3">Primary 3</option>
+                                <option value="Primary 4">Primary 4</option>
+                                <option value="Primary 5">Primary 5</option>
+                                <option value="Primary 6">Primary 6</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="studentPhone">Student Phone Number (Optional)</label>
+                            <input type="tel" id="studentPhone" name="studentPhone" placeholder="+234 XXX-XXXX-XXX">
+                        </div>
+
+                        <h3>Parent/Guardian Information</h3>
+
+                        <div class="form-group">
+                            <label for="parentFirstName">Parent/Guardian First Name *</label>
+                            <input type="text" id="parentFirstName" name="parentFirstName" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="parentLastName">Parent/Guardian Last Name *</label>
+                            <input type="text" id="parentLastName" name="parentLastName" required>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="parentPhone">Phone Number *</label>
+                                <input type="tel" id="parentPhone" name="parentPhone" placeholder="+234 XXX-XXXX-XXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="parentEmail">Email Address *</label>
+                                <input type="email" id="parentEmail" name="parentEmail" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="relationship">Relationship to Student *</label>
+                            <select id="relationship" name="relationship" required>
+                                <option value="">Select Relationship</option>
+                                <option value="Father">Father</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Guardian">Guardian</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="parentAddress">Residential Address *</label>
+                            <input type="text" id="parentAddress" name="parentAddress" placeholder="Your home address" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="emergencyContact">Emergency Contact (Alternative Phone) *</label>
+                            <input type="tel" id="emergencyContact" name="emergencyContact" placeholder="+234 XXX-XXXX-XXX" required>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary" onclick="goToStep(2)">Continue to Service Details</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Service Details -->
+                    <div class="form-step active" data-step="2">
+                        <h3>Service Details</h3>
+
+                        <div class="form-group">
+                            <label for="term">Select Term *</label>
+                            <select id="term" name="term" required onchange="updateTermPrice()">
+                                <option value="">Choose a Term</option>
+                                <option value="Term 1">Term 1 (January - March) - ₦12,500/month</option>
+                                <option value="Term 2">Term 2 (April - July) - ₦12,500/month</option>
+                                <option value="Term 3">Term 3 (September - December) - ₦12,500/month</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pickupPoint">Pick-up Point *</label>
+                            <select id="pickupPoint" name="pickupPoint" required>
+                                <option value="">Select Pick-up Location</option>
+                                <option value="Central Bonny">Central Bonny - 6:30 AM</option>
+                                <option value="East Bonny">East Bonny - 6:45 AM</option>
+                                <option value="West Bonny">West Bonny - 7:00 AM</option>
+                                <option value="North Bonny">North Bonny - 6:15 AM</option>
+                                <option value="South Bonny">South Bonny - 7:15 AM</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="dropoffPoint">Drop-off Point *</label>
+                            <select id="dropoffPoint" name="dropoffPoint" required>
+                                <option value="">Select Drop-off Location</option>
+                                <option value="School Main Gate">School Main Gate</option>
+                                <option value="School Entrance A">School Entrance A</option>
+                                <option value="School Entrance B">School Entrance B</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="transportType">Type of Transport *</label>
+                            <div class="radio-group">
+                                <label class="radio-label">
+                                    <input type="radio" name="transportType" value="One-way (Morning)" required>
+                                    One-way (Morning Only) - ₦8,000/month
+                                </label>
+                                <label class="radio-label">
+                                    <input type="radio" name="transportType" value="Round-trip (Morning & Evening)" required>
+                                    Round-trip (Morning & Evening) - ₦12,500/month
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="month">Duration (Months) *</label>
+                            <select id="month" name="month" required>
+                                <option value="">Select Duration</option>
+                                <option value="1">1 Month</option>
+                                <option value="2">2 Months</option>
+                                <option value="3">3 Months</option>
+                                <option value="4">4 Months (Full Term)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="hasDisability" id="hasDisability" onchange="toggleDisabilityField()">
+                                Student has special needs (requires additional support)
+                            </label>
+                        </div>
+
+                        <div class="form-group" id="disabilityField" style="display:none;">
+                            <label for="disabilityDetails">Please describe special needs:</label>
+                            <textarea id="disabilityDetails" name="disabilityDetails" rows="3" placeholder="Briefly describe any special requirements..."></textarea>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="goToStep(1)">Back</button>
+                            <button type="button" class="btn btn-primary" onclick="goToStep(3)">Review</button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Review & Submit -->
+                    <div class="form-step" data-step="3">
+                        <h3>Review Your Registration</h3>
+
+                        <div class="review-section">
+                            <h4>Student Information</h4>
+                            <div class="review-grid">
+                                <div class="review-item">
+                                    <span class="label">Name:</span>
+                                    <span id="reviewStudentName" class="value">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="label">Date of Birth:</span>
+                                    <span id="reviewDOB" class="value">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="label">School:</span>
+                                    <span id="reviewSchool" class="value">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="label">Class:</span>
+                                    <span id="reviewClass" class="value">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-section">
+                            <h4>Parent/Guardian Information</h4>
+                            <div class="review-grid">
+                                <div class="review-item">
+                                    <span class="label">Name:</span>
+                                    <span id="reviewParentName" class="value">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="label">Phone:</span>
+                                    <span id="reviewParentPhone" class="value">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="label">Email:</span>
+                                    <span id="reviewParentEmail" class="value">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="label">Address:</span>
+                                    <span id="reviewParentAddress" class="value">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-section">
+                            <h4>Service Details</h4>
+                            <div class="review-grid">
+                                <div class="review-item">
+                                    <span class="label">Term:</span>
+                                    <span id="reviewTerm" class="value">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="label">Pick-up Point:</span>
+                                    <span id="reviewPickup" class="value">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="label">Transport Type:</span>
+                                    <span id="reviewTransport" class="value">-</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="label">Duration:</span>
+                                    <span id="reviewDuration" class="value">-</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="review-section cost-summary">
+                            <h4>Cost Summary</h4>
+                            <div class="cost-breakdown">
+                                <div class="cost-item">
+                                    <span>Monthly Fee:</span>
+                                    <span id="monthlyFee">₦0</span>
+                                </div>
+                                <div class="cost-item">
+                                    <span>Duration:</span>
+                                    <span id="durationDisplay">-</span>
+                                </div>
+                                <div class="cost-item total">
+                                    <span>Total Amount Due:</span>
+                                    <span id="totalAmount">₦0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="agreeTerms" required>
+                                I agree to the terms and conditions and understand the cancellation policy
+                            </label>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="goToStep(3)">Back</button>
+                            <button type="submit" class="btn btn-primary btn-submit">Complete Registration</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Bonny Island School Bus Transport. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#services">Services</a>
+                <a href="index.html#pricing">Pricing</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
